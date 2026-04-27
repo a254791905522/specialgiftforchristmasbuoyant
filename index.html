@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Christmas Treasure — Find Festive Hidden Objects</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Nunito:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pine: #0f2d1f;
+            --pine-deep: #061810;
+            --berry: #8b1c3a;
+            --berry-light: #b82d4a;
+            --gold: #e8c56c;
+            --gold-soft: rgba(232, 197, 108, 0.2);
+            --cream: #fdf6e8;
+            --frost: rgba(255, 255, 255, 0.12);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pine-deep);
+            min-height: 100vh;
+            color: #e8e0d4;
+            padding: 24px 16px 40px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 120% 80% at 50% -20%, rgba(139, 28, 58, 0.35) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 50% at 100% 50%, rgba(15, 45, 31, 0.6) 0%, transparent 45%),
+                linear-gradient(180deg, #0a1812 0%, var(--pine-deep) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .snow {
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.45), transparent),
+                radial-gradient(2px 2px at 40% 70%, rgba(255, 255, 255, 0.3), transparent),
+                radial-gradient(1px 1px at 90% 10%, rgba(255, 255, 255, 0.5), transparent);
+            background-size: 200px 200px, 180px 180px, 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrap {
+            max-width: 640px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ornament {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .hero-art {
+            height: 100px;
+            border-radius: 20px 20px 0 0;
+            background:
+                linear-gradient(165deg, #1a4d32 0%, #0f2d1f 45%, #1a0f12 100%);
+            border: 1px solid var(--frost);
+            border-bottom: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .window {
+            width: 48%;
+            max-width: 200px;
+            height: 68px;
+            border-radius: 8px;
+            background: linear-gradient(145deg, rgba(255, 230, 200, 0.12) 0%, rgba(80, 30, 40, 0.2) 100%);
+            box-shadow: inset 0 0 20px rgba(232, 197, 108, 0.15);
+            position: relative;
+        }
+
+        .window::after {
+            content: '✦';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.4rem;
+            opacity: 0.5;
+        }
+
+        .sash {
+            width: 6px;
+            height: 72px;
+            background: linear-gradient(180deg, var(--berry) 0%, #5a1024 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 12px rgba(139, 28, 58, 0.4);
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(15, 45, 31, 0.95) 0%, rgba(6, 24, 16, 0.98) 100%);
+            border: 1px solid var(--frost);
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            padding: 32px 28px 36px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: 900;
+            text-align: center;
+            color: var(--cream);
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        h1 .sparkle {
+            color: var(--gold);
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #c4b89a;
+            margin-bottom: 24px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .chip {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--gold-soft);
+            color: #f0e4c8;
+            border: 1px solid rgba(232, 197, 108, 0.25);
+        }
+
+        .body-text {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #d4caba;
+            margin-bottom: 22px;
+        }
+
+        .body-text strong {
+            color: var(--cream);
+        }
+
+        .section-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin: 28px 0 14px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding: 8px 0 8px 24px;
+            line-height: 1.6;
+            color: #c9beb0;
+        }
+
+        li::before {
+            content: '❄';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .how li::before {
+            content: '✧';
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            margin-top: 32px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #1a0a0e;
+            background: linear-gradient(180deg, #f0d78c 0%, var(--gold) 45%, #b8942e 100%);
+            box-shadow: 0 6px 24px rgba(232, 197, 108, 0.25);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(232, 197, 108, 0.35);
+        }
+
+        .foot {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.9rem;
+        }
+
+        .foot a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .foot a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 24px 18px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="snow" aria-hidden="true"></div>
+    <div class="wrap">
+        <p class="ornament">A cozy holiday quest</p>
+
+        <div class="hero-art" aria-hidden="true">
+            <div class="window"></div>
+            <div class="sash"></div>
+            <div class="window"></div>
+        </div>
+        <div class="card">
+            <h1>Hidden <span class="sparkle">Christmas</span> Treasure</h1>
+            <p class="tagline">Find festive hidden objects in magical winter scenes</p>
+
+            <div class="chips">
+                <span class="chip">Puzzle</span>
+                <span class="chip">iPhone &amp; iPad</span>
+                <span class="chip">Ages 4+</span>
+            </div>
+
+            <p class="body-text"><strong>Discover magical Christmas settings</strong> and search for hidden items in a relaxed, festive puzzle. Sharpen your observation, enjoy warm décor and cheerful holiday atmosphere, and race the clock to find every object on the list—perfect for a quiet break or a family challenge.</p>
+
+            <p class="section-label">What you will find</p>
+            <ul>
+                <li>Multiple bright, Christmas-themed levels to explore</li>
+                <li>Classic hidden-object play—easy to start, satisfying to master</li>
+                <li>Charming art, cozy rooms, and seasonal cheer throughout</li>
+                <li>Smooth touch controls and a calm, laid-back pace</li>
+                <li>Fun for every age, whether you want to unwind or focus</li>
+            </ul>
+
+            <p class="section-label">How to play</p>
+            <ul class="how">
+                <li>Study each scene and read the list of items to find</li>
+                <li>Tap objects in the picture to collect them</li>
+                <li>Clear the list before time runs out to finish the level</li>
+                <li>Progress to unlock new scenes and tougher hunts</li>
+            </ul>
+
+            <a href="https://apps.apple.com/us/app/hidden-christmas-treasure/id1067272145?uo=4" class="btn" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+
+            <div class="foot">
+                <a href="privacy.html">Privacy notice</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

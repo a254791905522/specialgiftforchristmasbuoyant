@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — Hidden Christmas Treasure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pine: #0f2d1f;
+            --pine-mid: #1a3d2c;
+            --berry: #7a1832;
+            --gold: #e0bc5c;
+            --cream: #f5ebe0;
+            --muted: #b8a995;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: #050d0a;
+            color: var(--muted);
+            min-height: 100vh;
+            line-height: 1.75;
+        }
+
+        .frame {
+            position: fixed;
+            inset: 0;
+            border: 12px solid transparent;
+            border-image: linear-gradient(135deg, #1a3d2c, #2d1218, #1a3d2c) 1;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .glow {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(122, 24, 50, 0.25) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 22px 56px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(224, 188, 92, 0.2);
+        }
+
+        .ribbon {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3.2vw, 1.9rem);
+            color: var(--cream);
+            font-weight: 700;
+        }
+
+        .when {
+            margin-top: 10px;
+            font-size: 0.88rem;
+            color: #8a7d6a;
+        }
+
+        section {
+            margin-bottom: 32px;
+            padding: 22px 20px;
+            background: linear-gradient(165deg, rgba(15, 45, 31, 0.88) 0%, rgba(8, 20, 14, 0.95) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        section p + p {
+            margin-top: 12px;
+        }
+
+        section strong {
+            color: #dcd2c4;
+        }
+
+        .list-plain {
+            margin-top: 14px;
+            padding-left: 0;
+        }
+
+        .list-plain li {
+            list-style: none;
+            padding: 6px 0 6px 1.1em;
+            text-indent: -0.4em;
+        }
+
+        .list-plain li::before {
+            content: '· ';
+            color: var(--berry);
+        }
+
+        .back {
+            margin-top: 36px;
+            text-align: center;
+        }
+
+        .back a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="frame" aria-hidden="true"></div>
+    <div class="page">
+        <header>
+            <p class="ribbon">Hidden Christmas Treasure</p>
+            <h1>Privacy at a glance</h1>
+            <p class="when">Last updated: April 27, 2026. Applies to the iOS and iPadOS app distributed on the App Store under this product name.</p>
+        </header>
+
+        <section>
+            <h2>The short version</h2>
+            <p>This app is a casual hidden-object game with a holiday theme. <strong>As reflected on the App Store privacy details for the product</strong>, no data is collected from the app in the way that label is reported—so there is no account system here, and no in-app data gathering for analytics, ads, or profiling on our side for that build.</p>
+        </section>
+
+        <section>
+            <h2>What stays on your device</h2>
+            <p>The game may save <strong>progress, scores, and preferences on your iPhone or iPad</strong> so you can pick up where you left off. That information remains under the device and Apple account controls you already use, unless you use system features (such as backup) that copy app data as part of a broader device backup you manage in Settings.</p>
+        </section>
+
+        <section>
+            <h2>Apple, Game Center, and the store</h2>
+            <p>Installs, updates, billing, and <strong>Game Center</strong> (for example leaderboards) are provided by <strong>Apple’s services</strong>. How Apple handles identifiers, sign-in, and family controls follows Apple’s own policies, not a separate list on this page.</p>
+        </section>
+
+        <section>
+            <h2>Advertising label</h2>
+            <p>Where the store indicates that the app <strong>contains advertising</strong>, that refers to the classification shown there. Any ad-related data practices will follow what Apple and, if applicable, the ad system disclose for the installed version. This notice does not replace the App Store product page for your exact build.</p>
+        </section>
+
+        <section>
+            <h2>Age rating</h2>
+            <p>The game is designed for a broad family audience, consistent with the <strong>4+</strong> age range shown in the store. Parental and Screen Time options on the device are the right place to manage what younger players can access across apps.</p>
+        </section>
+
+        <section>
+            <h2>When this text changes</h2>
+            <p>We may update this page if the way the game works or the information shown on the App Store changes. <strong>The date at the top will change</strong> when we publish a new version. The App Store page remains the primary reference for official privacy nutrition labels and platform disclosures for the app you have installed.</p>
+        </section>
+
+        <p class="back"><a href="index.html">Back to the game</a></p>
+    </div>
+</body>
+
+</html>
